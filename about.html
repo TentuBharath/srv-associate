@@ -42,70 +42,83 @@
       <!-- Profile Section -->
       <section class="profile-section">
         <div class="profile-wrapper">
-          <div class="profile-card-main">
-            <div class="profile-image-side">
-              <div class="image-frame">
-                <img
-                   src="card.jpg"
-                  alt="P. Narasimha Murthy"
-                />
+          <div class="profile-bio-card">
+            <div class="bio-header">
+              <div class="bio-avatar" aria-hidden="true">PNM</div>
+              <div class="bio-title">
+                <h2>P. Narasimha Murthy</h2>
+                <p class="designation">Principal Structural Engineer & Founder</p>
+                <p class="bio-subtitle">Structural Engineering · Construction · Consultancy</p>
+              </div>
+              <div class="bio-cta">
+                <a href="contact.html" class="btn small primary">Hire Us</a>
+                <a href="services.html" class="btn small outline">View Services</a>
               </div>
             </div>
 
-            <div class="profile-content-side">
-              <div class="name-section">
-                <h2>P. Narasimha Murthy</h2>
-                <p class="designation">
-                  Principal Structural Engineer & Founder
-                </p>
+            <div class="expertise-tags" aria-label="Key expertise areas">
+              <span class="chip">Structural Design</span>
+              <span class="chip">Construction Management</span>
+              <span class="chip">Architectural Planning</span>
+              <span class="chip">Survey & Layout</span>
+            </div>
+
+            <div class="bio-body">
+              <div class="bio-left">
+                <div class="qualification-badges">
+                  <div class="badge">
+                    <span class="badge-icon">🎓</span>
+                    <span class="badge-text">M.Tech (Structures)</span>
+                  </div>
+                  <div class="badge">
+                    <span class="badge-icon">✅</span>
+                    <span class="badge-text">Licensed Engineer</span>
+                  </div>
+                </div>
+
+                <div class="about-text">
+                  <p>
+                    With over 20 years of distinguished experience in structural
+                    engineering, P. Narasimha Murthy has been the driving force
+                    behind SRV Associates' success in the Visakhapatnam region.
+                    His expertise spans across residential, commercial, and
+                    infrastructure projects, bringing innovative solutions and
+                    unwavering commitment to quality.
+                  </p>
+                  <p>
+                    As a licensed structural engineer with an M.Tech specialization,
+                    he combines technical excellence with a deep understanding of
+                    client needs, ensuring every project is delivered with
+                    precision, safety, and aesthetic appeal.
+                  </p>
+                </div>
               </div>
 
-              <div class="qualification-badges">
-                <div class="badge">
-                  <span class="badge-icon">🎓</span>
-                  <span class="badge-text">M.Tech (Structures)</span>
-                </div>
-                <div class="badge">
-                  <span class="badge-icon">✅</span>
-                  <span class="badge-text">Licensed Engineer</span>
+              <div class="bio-right">
+                <div class="stat-grid">
+                  <div class="stat-card">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Years Excellence</div>
+                  </div>
+                  <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Projects Delivered</div>
+                  </div>
+                  <div class="stat-card">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Years Experience</div>
+                  </div>
+                  <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                  </div>
                 </div>
               </div>
+            </div>
 
-              <div class="about-text">
-                <p>
-                  With over 20 years of distinguished experience in structural
-                  engineering, P. Narasimha Murthy has been the driving force
-                  behind SRV Associates' success in the Visakhapatnam region.
-                  His expertise spans across residential, commercial, and
-                  infrastructure projects, bringing innovative solutions and
-                  unwavering commitment to quality.
-                </p>
-                <p>
-                  As a licensed structural engineer with an M.Tech
-                  specialization, he combines technical excellence with a deep
-                  understanding of client needs, ensuring every project is
-                  delivered with precision, safety, and aesthetic appeal.
-                </p>
-              </div>
-
-              <div class="achievement-numbers">
-                <div class="experience-tag">
-                  <span class="tag-years">20+</span>
-                  <span class="tag-label">Years Excellence</span>
-                </div>
-                <div class="experience-tag">
-                  <span class="tag-years">500+</span>
-                  <span class="tag-label">Projects Delivered</span>
-                </div>
-                <div class="experience-tag">
-                  <span class="tag-years">20+</span>
-                  <span class="tag-label">Years Experience</span>
-                </div>
-                <div class="experience-tag">
-                  <span class="tag-years">100%</span>
-                  <span class="tag-label">Client Satisfaction</span>
-                </div>
-              </div>
+            <div class="bio-quote" aria-label="Professional statement">
+              “Engineering safe, efficient, and elegant structures — balancing innovation
+              with practical execution for every project.”
             </div>
           </div>
         </div>
@@ -293,5 +306,68 @@
     <footer>
       <p>&copy; 2025 SRV ASSOCIATES · Visakhapatnam, India</p>
     </footer>
+    <script src="animations.js"></script>
+    <script>
+      (function () {
+        const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const counters = document.querySelectorAll('.stat-number');
+
+        function parseValue(text) {
+          const m = String(text).trim().match(/^(\d+(?:\.\d+)?)(.*)$/);
+          if (!m) return { value: 0, suffix: '' };
+          return { value: parseFloat(m[1]), suffix: m[2] };
+        }
+
+        function animate(el) {
+          const target = parseFloat(el.dataset.target || '0');
+          const suffix = el.dataset.suffix || '';
+          const duration = 1500; // ms
+          const start = performance.now();
+
+          function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+
+          function step(now) {
+            const p = Math.min((now - start) / duration, 1);
+            const eased = easeOutCubic(p);
+            const current = Math.round(eased * target);
+            el.textContent = current + suffix;
+            if (p < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+        }
+
+        function init(el) {
+          const { value, suffix } = parseValue(el.textContent);
+          el.dataset.target = String(value);
+          el.dataset.suffix = suffix;
+          // Set initial state
+          el.textContent = (prefersReduced ? value : 0) + suffix;
+        }
+
+        if (!counters.length) return;
+
+        counters.forEach(init);
+
+        if (prefersReduced) return; // Respect reduced motion
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const el = entry.target;
+                if (!el.dataset.animated) {
+                  el.dataset.animated = 'true';
+                  animate(el);
+                }
+                observer.unobserve(el);
+              }
+            });
+          },
+          { threshold: 0.3, rootMargin: '0px 0px -10% 0px' }
+        );
+
+        counters.forEach((el) => observer.observe(el));
+      })();
+    </script>
   </body>
 </html>
