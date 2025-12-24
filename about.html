@@ -2,7 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>SRV ASSOCIATES | Leading Construction & Structural Engineering Consultants</title>
+    <title>
+      SRV ASSOCIATES | Leading Construction & Structural Engineering Consultants
+    </title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="logo.jpg" type="image/x-icon" />
@@ -30,9 +32,10 @@
       <div class="about-hero-overlay">
         <div class="about-hero-content">
           <span class="hero-label">Construction & Engineering Experts</span>
-          <h1>Building Excellence Since 20+ Years</h1>
+          <h1>Building Excellence Since 10+ Years</h1>
           <p>
-            Leading Structural Engineering & Construction Consultancy in Visakhapatnam
+            Leading Structural Engineering & Construction Consultancy in
+            Visakhapatnam
           </p>
         </div>
       </div>
@@ -44,15 +47,37 @@
         <div class="profile-wrapper">
           <div class="profile-bio-card">
             <div class="bio-header">
-              <div class="bio-avatar" aria-hidden="true">PNM</div>
+              <div class="bio-avatar" aria-hidden="true">
+                <img
+                  src="profile.PNG"
+                  alt="P. Narasimha Murthy"
+                  class="bio-avatar-img"
+                />
+              </div>
               <div class="bio-title">
                 <h2>P. Narasimha Murthy</h2>
-                <p class="designation">Principal Structural Engineer & Founder</p>
-                <p class="bio-subtitle">Structural Engineering · Construction · Consultancy</p>
+                <p class="designation">
+                  Principal Structural Engineer & Founder
+                </p>
+                <p class="bio-subtitle">
+                  Structural Engineering · Construction · Consultancy
+                </p>
+                <div class="qualification-badges">
+                  <div class="badge">
+                    <span class="badge-icon">🎓</span>
+                    <span class="badge-text">M.Tech (Structures)</span>
+                  </div>
+                  <div class="badge">
+                    <span class="badge-icon">✅</span>
+                    <span class="badge-text">Licensed Engineer</span>
+                  </div>
+                </div>
               </div>
               <div class="bio-cta">
                 <a href="contact.html" class="btn small primary">Hire Us</a>
-                <a href="services.html" class="btn small outline">View Services</a>
+                <a href="services.html" class="btn small outline"
+                  >View Services</a
+                >
               </div>
             </div>
 
@@ -65,7 +90,7 @@
 
             <div class="bio-body">
               <div class="bio-left">
-                <div class="qualification-badges">
+                <!-- <div class="qualification-badges">
                   <div class="badge">
                     <span class="badge-icon">🎓</span>
                     <span class="badge-text">M.Tech (Structures)</span>
@@ -74,7 +99,7 @@
                     <span class="badge-icon">✅</span>
                     <span class="badge-text">Licensed Engineer</span>
                   </div>
-                </div>
+                </div> -->
 
                 <div class="about-text">
                   <p>
@@ -86,10 +111,10 @@
                     unwavering commitment to quality.
                   </p>
                   <p>
-                    As a licensed structural engineer with an M.Tech specialization,
-                    he combines technical excellence with a deep understanding of
-                    client needs, ensuring every project is delivered with
-                    precision, safety, and aesthetic appeal.
+                    As a licensed structural engineer with an M.Tech
+                    specialization, he combines technical excellence with a deep
+                    understanding of client needs, ensuring every project is
+                    delivered with precision, safety, and aesthetic appeal.
                   </p>
                 </div>
               </div>
@@ -97,15 +122,15 @@
               <div class="bio-right">
                 <div class="stat-grid">
                   <div class="stat-card">
-                    <div class="stat-number">20+</div>
+                    <div class="stat-number">10+</div>
                     <div class="stat-label">Years Excellence</div>
                   </div>
                   <div class="stat-card">
-                    <div class="stat-number">500+</div>
+                    <div class="stat-number">50+</div>
                     <div class="stat-label">Projects Delivered</div>
                   </div>
                   <div class="stat-card">
-                    <div class="stat-number">20+</div>
+                    <div class="stat-number">10+</div>
                     <div class="stat-label">Years Experience</div>
                   </div>
                   <div class="stat-card">
@@ -117,8 +142,8 @@
             </div>
 
             <div class="bio-quote" aria-label="Professional statement">
-              “Engineering safe, efficient, and elegant structures — balancing innovation
-              with practical execution for every project.”
+              “Engineering safe, efficient, and elegant structures — balancing
+              innovation with practical execution for every project.”
             </div>
           </div>
         </div>
@@ -303,22 +328,28 @@
     <script src="animations.js"></script>
     <script>
       (function () {
-        const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        const counters = document.querySelectorAll('.stat-number');
+        const prefersReduced =
+          window.matchMedia &&
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const counters = document.querySelectorAll(".stat-number");
 
         function parseValue(text) {
-          const m = String(text).trim().match(/^(\d+(?:\.\d+)?)(.*)$/);
-          if (!m) return { value: 0, suffix: '' };
+          const m = String(text)
+            .trim()
+            .match(/^(\d+(?:\.\d+)?)(.*)$/);
+          if (!m) return { value: 0, suffix: "" };
           return { value: parseFloat(m[1]), suffix: m[2] };
         }
 
         function animate(el) {
-          const target = parseFloat(el.dataset.target || '0');
-          const suffix = el.dataset.suffix || '';
+          const target = parseFloat(el.dataset.target || "0");
+          const suffix = el.dataset.suffix || "";
           const duration = 1500; // ms
           const start = performance.now();
 
-          function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+          function easeOutCubic(t) {
+            return 1 - Math.pow(1 - t, 3);
+          }
 
           function step(now) {
             const p = Math.min((now - start) / duration, 1);
@@ -350,14 +381,14 @@
               if (entry.isIntersecting) {
                 const el = entry.target;
                 if (!el.dataset.animated) {
-                  el.dataset.animated = 'true';
+                  el.dataset.animated = "true";
                   animate(el);
                 }
                 observer.unobserve(el);
               }
             });
           },
-          { threshold: 0.3, rootMargin: '0px 0px -10% 0px' }
+          { threshold: 0.3, rootMargin: "0px 0px -10% 0px" }
         );
 
         counters.forEach((el) => observer.observe(el));

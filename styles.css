@@ -288,7 +288,7 @@ nav {
 main {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 80px 50px;
+  /* padding: 0px 50px; */
   position: relative;
 }
 
@@ -1399,11 +1399,11 @@ main {
 
 /* New: Image-free profile card */
 .profile-bio-card {
-  background: var(--brand-white);
+  /* background: var(--brand-white);
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(74, 74, 74, 0.1);
   border: 1px solid rgba(74, 74, 74, 0.08);
-  padding: 40px;
+  padding: 40px; */
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -1419,18 +1419,18 @@ main {
 
 /* Bio header */
 .bio-header {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 18px;
-  padding-bottom: 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  padding-bottom: 32px;
   border-bottom: 2px solid rgba(74, 74, 74, 0.08);
+  flex-wrap: wrap;
 }
 
 .bio-avatar {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1438,23 +1438,65 @@ main {
   color: #fff;
   font-weight: 900;
   letter-spacing: 1px;
-  box-shadow: 0 10px 24px rgba(232, 119, 34, 0.35);
+  box-shadow: 0 20px 60px rgba(74, 74, 74, 0.15), 0 0 0 6px rgba(232, 119, 34, 0.1);
+  overflow: hidden;
+  border: 6px solid white;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.bio-avatar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(0, 0, 0, 0.05) 100%);
+  pointer-events: none;
+}
+
+.bio-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 6px;
+}
+
+.bio-title {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .bio-title h2 {
-  margin: 0 0 4px 0;
+  margin: 0;
+  font-size: 2.2em;
+  font-weight: 700;
+  color: var(--brand-dark);
+  letter-spacing: -0.5px;
+  line-height: 1.2;
 }
 
 .bio-subtitle {
-  margin: 2px 0 0 0;
+  margin: 0;
   color: var(--text-muted);
   font-size: 0.95em;
+  font-weight: 500;
+}
+
+.designation {
+  font-size: 1.15em;
+  color: var(--brand-orange);
+  font-weight: 700;
+  margin: 0;
 }
 
 .bio-cta {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
+  align-self: flex-start;
+  margin-top: 20px;
 }
 
 .btn {
@@ -1557,10 +1599,21 @@ main {
     gap: 20px;
   }
   .bio-header {
-    grid-template-columns: auto 1fr;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+  }
+  .bio-title {
+    align-items: center;
+  }
+  .bio-title h2 {
+    font-size: 1.8em;
   }
   .bio-cta {
-    grid-column: 1 / -1;
+    justify-content: center;
+    width: 100%;
+    margin-top: 12px;
   }
   .bio-body {
     grid-template-columns: 1fr;
@@ -1570,8 +1623,13 @@ main {
     grid-template-columns: repeat(2, 1fr);
   }
   .bio-avatar {
-    width: 64px;
-    height: 64px;
+    width: 140px;
+    height: 140px;
+    border: 4px solid white;
+  }
+  .qualification-badges {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
@@ -1593,7 +1651,8 @@ main {
 .qualification-badges {
   display: flex;
   gap: 15px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 
 .badge {
@@ -1663,7 +1722,7 @@ main {
 
 /* Services Overview Section */
 .services-overview-section {
-  padding: 100px 50px;
+  padding: 0px 50px 50px 50px;
   background: var(--brand-white);
 }
 
@@ -2963,6 +3022,22 @@ main {
   color: var(--brand-dark);
 }
 
+.contact-link.whatsapp {
+  color: #25d366;
+}
+
+.contact-link.whatsapp:hover {
+  color: #128c7e;
+}
+
+.contact-link.gmail {
+  color: #ea4335;
+}
+
+.contact-link.gmail:hover {
+  color: #c5221f;
+}
+
 .contact-note {
   color: #8a9aa9;
   font-size: 0.9em;
@@ -3148,6 +3223,48 @@ main {
   border-color: var(--brand-white);
   transform: translateY(-2px);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.cta-btn.whatsapp {
+  background: #25d366;
+  color: #ffffff;
+  padding: 16px 42px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.08em;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.25);
+  display: inline-block;
+  border: 2px solid #25d366;
+}
+
+.cta-btn.whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+  background: #1ebe5d;
+  border-color: #1ebe5d;
+}
+
+.cta-btn.gmail {
+  background: #ea4335;
+  color: #ffffff;
+  padding: 16px 42px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.08em;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(234, 67, 53, 0.25);
+  display: inline-block;
+  border: 2px solid #ea4335;
+}
+
+.cta-btn.gmail:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(234, 67, 53, 0.35);
+  background: #c5221f;
+  border-color: #c5221f;
 }
 
 .consultation-image {
