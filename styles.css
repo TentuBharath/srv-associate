@@ -3152,11 +3152,6 @@ main {
   text-align: center;
 }
 
-/* New Contact Page Design */
-.contact-hero {
-  margin-bottom: 80px;
-}
-
 .contact-intro {
   text-align: center;
   max-width: 800px;
@@ -3167,6 +3162,7 @@ main {
   font-size: 2.8em;
   color: var(--brand-dark);
   margin-bottom: 20px;
+  margin-top: 20px;
   font-weight: 700;
 }
 
@@ -3797,7 +3793,6 @@ footer {
   color: var(--brand-white);
   text-align: center;
   padding: clamp(30px, 5vw, 40px) clamp(20px, 3vw, 30px);
-  margin-top: clamp(60px, 12vw, 100px);
   border-top: 3px solid var(--brand-orange);
   width: 100%;
   max-width: 100vw;
